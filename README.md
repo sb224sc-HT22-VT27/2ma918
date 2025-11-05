@@ -5,6 +5,7 @@
 Welcome to this course in optimization for 2MA404, 2MA62Ä and 2MA918!
 
 **Teacher and examiner**: Jonas Nordqvist ([jonas.nordqvist@lnu.se](mailto:jonas.nordqvist@lnu.se))
+
 **Teaching assistant**: Jakob Dautovic ([jakob.dautovic@lnu.se](mailto:jakob.dautovic@lnu.se))
 
 **Literature:**
@@ -31,8 +32,8 @@ Current general plan. Last updated: 2025-11-04
 
 **Course literature**
 
-- [A]: Optimization
-- [B]: Optimization, exercise book
+- A: Optimization
+- B: Optimization, exercise book
 
 ### Week 45
 
