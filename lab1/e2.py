@@ -13,6 +13,9 @@ import matplotlib.pyplot as plt
 # Suppress deprecation warnings for simplex
 warnings.filterwarnings('ignore', category=DeprecationWarning)
 
+# Number of trials for averaging timing results
+NUM_TRIALS = 5
+
 print("=" * 60)
 print("Exercise 2: Large LP-problems")
 print("=" * 60)
@@ -57,13 +60,18 @@ print(f"Optimization successful: {result.success}")
 # iii) Find problem size where simplex average time exceeds 1 second
 print("\niii) Finding problem size where simplex exceeds 1 second:")
 
+# Benchmarking parameters for simplex method
+SIMPLEX_START_SIZE = 10
+SIMPLEX_MAX_SIZE = 200
+SIMPLEX_STEP_SIZE = 10
+
 simplex_times = []
 simplex_sizes = []
 
 # Test different problem sizes
-for size in range(10, 200, 10):
+for size in range(SIMPLEX_START_SIZE, SIMPLEX_MAX_SIZE, SIMPLEX_STEP_SIZE):
     times = []
-    for trial in range(5):
+    for trial in range(NUM_TRIALS):
         n, m = size, size
         A = np.concatenate([rand(m, n) + 1, np.eye(m)], axis=-1)
         b = np.ones(m)
@@ -94,13 +102,18 @@ else:
 # iv) Test with HiGHS method
 print("\niv) Testing with HiGHS method (default or 'highs'):")
 
+# Benchmarking parameters for HiGHS method
+HIGHS_START_SIZE = 100
+HIGHS_MAX_SIZE = 3000
+HIGHS_STEP_SIZE = 100
+
 highs_times = []
 highs_sizes = []
 
 # Test different problem sizes with HiGHS
-for size in range(100, 3000, 100):
+for size in range(HIGHS_START_SIZE, HIGHS_MAX_SIZE, HIGHS_STEP_SIZE):
     times = []
-    for trial in range(5):
+    for trial in range(NUM_TRIALS):
         n, m = size, size
         A = np.concatenate([rand(m, n) + 1, np.eye(m)], axis=-1)
         b = np.ones(m)

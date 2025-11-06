@@ -180,7 +180,10 @@ print(f"  (x1=Type A, x2=Type B, x3=Type C)")
 print(f"  Optimal value: z* = {-result_extended.fun:.2f}")
 
 # Calculate reduced cost for type C
-# Reduced cost = c_j - (shadow prices) @ (constraint coefficients for variable j)
+# Reduced cost formula: R_j = c_j - y* @ a_j
+# where c_j is the objective coefficient, y* are shadow prices (dual variables),
+# and a_j is the column of constraint coefficients for variable j
+# A positive reduced cost indicates the variable should enter the basis (be produced)
 c_C = 1350
 a_C = np.array([7, 4, 2])
 reduced_cost_C = c_C - shadow_prices @ a_C
