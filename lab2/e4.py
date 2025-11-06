@@ -55,11 +55,8 @@ def find_initial_feasible_point():
     
     # If no candidate works, use optimization to find feasible point
     # Minimize sum of constraint violations
-    def constraint_violation(x):
-        return max(0, g1(x))**2 + max(0, g2(x))**2
-    
     x0 = np.array([0.0, 0.0])
-    result = minimize(constraint_violation, x0, method='BFGS')
+    result = minimize(alpha, x0, method='BFGS')
     
     if is_feasible(result.x):
         return result.x

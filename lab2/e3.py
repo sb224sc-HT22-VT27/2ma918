@@ -14,12 +14,10 @@ b = 100
 
 def rosenbrock(x):
     """Rosenbrock function: f(x,y) = (a-x)^2 + b(y-x^2)^2"""
-    if isinstance(x, list):  # For meshgrid input as list
-        return (a - x[0])**2 + b*(x[1] - x[0]**2)**2
-    elif len(x.shape) > 1:  # For 2D array
-        return (a - x[0])**2 + b*(x[1] - x[0]**2)**2
-    else:  # For single point
-        return (a - x[0])**2 + b*(x[1] - x[0]**2)**2
+    # Handle both list and array inputs uniformly
+    if isinstance(x, list):
+        x = np.array(x)
+    return (a - x[0])**2 + b*(x[1] - x[0]**2)**2
 
 def grad_rosenbrock(x):
     """Gradient of Rosenbrock function"""
