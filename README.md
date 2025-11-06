@@ -30,10 +30,10 @@ Note: The book is also available in Swedish and is then called *Optimeringslära
 
 Current general plan. Last updated: 2025-11-04
 
-**Course literature**
+### Course literature
 
-- A: Optimization
-- B: Optimization, exercise book
+* A: Optimization
+* B: Optimization, exercise book
 
 ### Week 45
 
@@ -43,7 +43,7 @@ Introduction to the topic, mathematical modelling, key terminology such as: loca
 Sec: 1, 2.1–2.5, 3
 
 **Recommended exercises [B]:**
-1.1, 1.2, 1.3, 2.2, 2.3, 2.5, 2.6 
+1.1, 1.2, 1.3, 2.2, 2.3, 2.5, 2.6
 
 ### Week 46
 
@@ -57,7 +57,7 @@ Sec: 3, 4
 
 ### Week 47
 
-The dual problem, relation between primal and dual, optimality based on duality, sensitivity analysis. 
+The dual problem, relation between primal and dual, optimality based on duality, sensitivity analysis.
 
 **Reading instruction [A]:**
 Sec: 5, 6
@@ -72,7 +72,6 @@ Introduction to networks and network problems. We solve for instance the minimum
 * Thursday: This lecture we also plan to kickstart the assignment for 2MA404 and 2MA62Ä which you will work with simultaneously.
 * Friday: Workshop and grading of the first laboration, Time: 8-12 (2MA404/2MA918).
 
-
 **Reading instruction [A]:**
 Sec: 8.1-8.3
 
@@ -85,12 +84,11 @@ Minimum cost network flow, network simplex method, introduction to non-linear pr
 
 * Monday: Workshop and grading of the first laboration, Time: 8-12 (2MA62Ä).
 
-
 **Reading instruction [A]:**
 Sec: 8.6.1-8.6.3, 8.7, 9
 
 **Recommended exercises [B]:**
-8.29, 9.4, 9.5, 9.6, 9.7, 9.8 
+8.29, 9.4, 9.5, 9.6, 9.7, 9.8
 
 ### Week 50
 
@@ -112,30 +110,30 @@ Methods for constrained optimization, Lagrange duality and Lagrange relaxation, 
 **Reading instruction [A]:**
 Sec: 12, 17
 
-**Recommended exercises [B]:** 
+**Recommended exercises [B]:**
 12.1, 12.3, 12.10, 12.12, 12.14, 12.15, 17.1, 17.2, 17.3
 
 [Solutions](./Solutions.zip)
 
 ## Laborations
 
-Last updated: 2025-11-04
+### Last updated: 2025-11-04
 
 The laborations are U/G i.e., fail or pass, and will typically be examined during the laboration with some minor work thereafter. The instructions will be published here at least one week before the laborations, and all students are expected to have carefully read the instructions prior to the laboration.
 
-**2MA404/2MA918**
+#### 2MA404/2MA918
 
 * Laboration I, Friday 28/11
 * Laboration II, Friday 19/12
 
-**2MA62Ä**
+#### 2MA62Ä
 
 * Laboration I, Monday 1/12
 * aboration II, Tuesday 16/12
 
 ### Getting started with Python and SciPy
 
-The computer assignment in this course is done in Python with the SciPy-package. 
+The computer assignment in this course is done in Python with the SciPy-package.
 
 Below are some links for setting up Python and the SciPy-package on your own computer. If you are having troubles, please let me know.
 
