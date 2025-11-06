@@ -21,12 +21,12 @@ citecolor=black]{hyperref}
 
 % Code listing settings
 \lstset{
-  basicstyle=\ttfamily\small,
-  breaklines=true,
-  frame=single,
-  numbers=left,
-  numberstyle=\tiny,
-  backgroundcolor=\color{gray!10}
+basicstyle=\ttfamily\small,
+breaklines=true,
+frame=single,
+numbers=left,
+numberstyle=\tiny,
+backgroundcolor=\color{gray!10}
 }
 
 \title{2MA918 Laboration I}
@@ -50,72 +50,76 @@ The linear programming model is formulated as follows:
 
 \textbf{Decision variables:}
 \begin{itemize}
-    \item $x_1$: Number of type A TVs to produce
-    \item $x_2$: Number of type B TVs to produce
+\item $x_1$: Number of type A TVs to produce
+\item $x_2$: Number of type B TVs to produce
 \end{itemize}
 
 \textbf{Objective function:}
 \begin{equation}
-    \text{maximize } z = 700x_1 + 1000x_2
+\text{maximize } z = 700x_1 + 1000x_2
 \end{equation}
 
 \textbf{Constraints:}
 \begin{align}
-    3x_1 + 5x_2 &\leq 3900 \quad \text{(Stage I)} \\
-    x_1 + 3x_2 &\leq 2100 \quad \text{(Stage II)} \\
-    2x_1 + 2x_2 &\leq 2200 \quad \text{(Stage III)} \\
-    x_1, x_2 &\geq 0
+3x_1 + 5x_2 &\leq 3900 \quad \text{(Stage I)} \\
+x_1 + 3x_2 &\leq 2100 \quad \text{(Stage II)} \\
+2x_1 + 2x_2 &\leq 2200 \quad \text{(Stage III)} \\
+x_1, x_2 &\geq 0
 \end{align}
 
 In matrix form: maximize $c^T x$ subject to $Ax \leq b$, $x \geq 0$, where:
 \begin{equation}
-c = \begin{bmatrix} 700 \\ 1000 \end{bmatrix}, \quad
-A = \begin{bmatrix} 3 & 5 \\ 1 & 3 \\ 2 & 2 \end{bmatrix}, \quad
-b = \begin{bmatrix} 3900 \\ 2100 \\ 2200 \end{bmatrix}
+c =
+\begin{bmatrix} 700 \\ 1000
+\end{bmatrix}, \quad
+A =
+\begin{bmatrix} 3 & 5 \\ 1 & 3 \\ 2 & 2
+\end{bmatrix}, \quad
+b =
+\begin{bmatrix} 3900 \\ 2100 \\ 2200
+\end{bmatrix}
 \end{equation}
 
 \subsection{Restricted convex set region~\label{subsec:convex-region}}
 
 The feasible region is bounded by the constraint lines and the non-negativity conditions. Figure~\ref{fig:feasible_region} shows the three constraint lines along with the $x_1$ and $x_2$ axes.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{img/ex1_feasible_region.png}
-    \caption{Feasible region for the TV production problem}
-    \label{fig:feasible_region}
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.8\textwidth]{img/ex1_feasible_region.png}
+\caption{Feasible region for the TV production problem}\label{fig:feasible_region}
 \end{figure}
 
 \subsection{Study the figure of~\ref{subsec:convex-region}}
 
 From the figure, we can identify five vertices that enclose the feasible region:
 \begin{itemize}
-    \item $v_1 = (0, 0)$ - Origin
-    \item $v_2 = (1100, 0)$ - Intersection of $x_2 = 0$ and Stage III constraint
-    \item $v_3 = (800, 300)$ - Intersection of Stage I and Stage III constraints
-    \item $v_4 = (300, 600)$ - Intersection of Stage I and Stage II constraints
-    \item $v_5 = (0, 700)$ - Intersection of $x_1 = 0$ and Stage II constraint
+\item $v_1 = (0, 0)$ --- Origin
+\item $v_2 = (1100, 0)$ --- Intersection of $x_2 = 0$ and Stage III constraint
+\item $v_3 = (800, 300)$ --- Intersection of Stage I and Stage III constraints
+\item $v_4 = (300, 600)$ --- Intersection of Stage I and Stage II constraints
+\item $v_5 = (0, 700)$ --- Intersection of $x_1 = 0$ and Stage II constraint
 \end{itemize}
 
 \subsection{Adding level curves to convex hull plot}
 
 Figure~\ref{fig:level_curves} shows the feasible region with level curves of the objective function superimposed. The level curves are lines of constant profit $z = 700x_1 + 1000x_2 = k$ for increasing values of $k$. The curves have increasing red intensity for higher profit values. The maximum profit is achieved at the vertex where the highest level curve touches the feasible region, which is $v_3 = (800, 300)$.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{img/ex1_level_curves.png}
-    \caption{Feasible region with level curves of the objective function}
-    \label{fig:level_curves}
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.8\textwidth]{img/ex1_level_curves.png}
+\caption{Feasible region with level curves of the objective function}\label{fig:level_curves}
 \end{figure}
 
 \subsection{Verify in all extreme points}
 
 Evaluating the objective function at each vertex:
 \begin{align*}
-    z(v_1) &= 700(0) + 1000(0) = 0 \\
-    z(v_2) &= 700(1100) + 1000(0) = 770{,}000 \\
-    z(v_3) &= 700(800) + 1000(300) = 860{,}000 \\
-    z(v_4) &= 700(300) + 1000(600) = 810{,}000 \\
-    z(v_5) &= 700(0) + 1000(700) = 700{,}000
+z(v_1) &= 700(0) + 1000(0) = 0 \\
+z(v_2) &= 700(1100) + 1000(0) = 770{,}000 \\
+z(v_3) &= 700(800) + 1000(300) = 860{,}000 \\
+z(v_4) &= 700(300) + 1000(600) = 810{,}000 \\
+z(v_5) &= 700(0) + 1000(700) = 700{,}000
 \end{align*}
 
 The maximum value is $z^* = 860{,}000$ at vertex $v_3 = (800, 300)$.
@@ -124,8 +128,8 @@ The maximum value is $z^* = 860{,}000$ at vertex $v_3 = (800, 300)$.
 
 Using \texttt{scipy.optimize.linprog} with the HiGHS method to solve the problem:
 \begin{itemize}
-    \item Optimal solution: $x^* = (800, 300)$
-    \item Maximum profit: $z^* = 860{,}000$
+\item Optimal solution: $x^* = (800, 300)$
+\item Maximum profit: $z^* = 860{,}000$
 \end{itemize}
 
 This confirms the result from the graphical analysis. The company should produce 800 type A TVs and 300 type B TVs to maximize profit at \$860,000.
@@ -134,17 +138,17 @@ This confirms the result from the graphical analysis. The company should produce
 
 Converting to standard form by introducing slack variables $s_1, s_2, s_3 \geq 0$:
 \begin{align}
-    3x_1 + 5x_2 + s_1 &= 3900 \\
-    x_1 + 3x_2 + s_2 &= 2100 \\
-    2x_1 + 2x_2 + s_3 &= 2200 \\
-    x_1, x_2, s_1, s_2, s_3 &\geq 0
+3x_1 + 5x_2 + s_1 &= 3900 \\
+x_1 + 3x_2 + s_2 &= 2100 \\
+2x_1 + 2x_2 + s_3 &= 2200 \\
+x_1, x_2, s_1, s_2, s_3 &\geq 0
 \end{align}
 
 Solving in standard form yields:
 \begin{itemize}
-    \item Optimal solution: $x^* = (800, 300)$
-    \item Slack variables: $s^* = (0, 400, 0)$
-    \item Maximum profit: $z^* = 860{,}000$
+\item Optimal solution: $x^* = (800, 300)$
+\item Slack variables: $s^* = (0, 400, 0)$
+\item Maximum profit: $z^* = 860{,}000$
 \end{itemize}
 
 The slack variable $s_2 = 400$ indicates that Stage II has 400 hours of unused capacity. Stage I and Stage III are fully utilized (slack = 0), making them binding constraints.
@@ -158,22 +162,22 @@ This exercise investigates the computational performance of different optimizati
 
 Matrix and vector notation provides several critical advantages for large LP problems:
 \begin{enumerate}
-    \item \textbf{Compact representation:} Instead of writing thousands of individual equations, we represent them as $Ax \leq b$.
-    \item \textbf{Computational efficiency:} Matrix operations are highly optimized in numerical libraries (e.g., BLAS, LAPACK), enabling fast computation.
-    \item \textbf{Scalability:} The same algorithm handles problems of any size without modification.
-    \item \textbf{Mathematical clarity:} The structure of the problem is clear, facilitating theoretical analysis.
-    \item \textbf{Implementation simplicity:} Reduces code complexity and potential errors when dealing with large systems.
+\item \textbf{Compact representation:} Instead of writing thousands of individual equations, we represent them as $Ax \leq b$.
+\item \textbf{Computational efficiency:} Matrix operations are highly optimized in numerical libraries (e.g., BLAS, LAPACK), enabling fast computation.
+\item \textbf{Scalability:} The same algorithm handles problems of any size without modification.
+\item \textbf{Mathematical clarity:} The structure of the problem is clear, facilitating theoretical analysis.
+\item \textbf{Implementation simplicity:} Reduces code complexity and potential errors when dealing with large systems.
 \end{enumerate}
 
 \subsection{Solving example with simplex}
 
-For a small test problem with $m = n = 10$, the simplex method solves the problem in approximately 5-6 milliseconds on the test machine. This demonstrates that for small problems, the simplex method is quite efficient.
+For a small test problem with $m = n = 10$, the simplex method solves the problem in approximately 5--6 milliseconds on the test machine. This demonstrates that for small problems, the simplex method is quite efficient.
 
 \subsection{Get simplex average time exceeds 1 second}
 
 By systematically increasing the problem size and averaging over 5 trials, we find that the simplex method exceeds 1 second average time at:
 \begin{equation}
-    \boxed{m = n = 150}
+\boxed{m = n = 150}
 \end{equation}
 
 The computational cost grows approximately cubically with problem size, as expected for the simplex method.
@@ -182,16 +186,15 @@ The computational cost grows approximately cubically with problem size, as expec
 
 Using the HiGHS method (a state-of-the-art interior point algorithm), we find that the average time exceeds 1 second at:
 \begin{equation}
-    \boxed{m = n = 1400}
+\boxed{m = n = 1400}
 \end{equation}
 
 This represents approximately a \textbf{9.3× performance improvement} over the simplex method. Figure~\ref{fig:performance} shows the comparison between both methods.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\textwidth]{img/ex2_performance_comparison.png}
-    \caption{Performance comparison: Simplex vs HiGHS method}
-    \label{fig:performance}
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\textwidth]{img/ex2_performance_comparison.png}
+\caption{Performance comparison: Simplex vs HiGHS method}\label{fig:performance}
 \end{figure}
 
 The HiGHS method demonstrates superior scalability for large problems, making it the preferred choice for industrial-scale optimization tasks.
@@ -205,16 +208,16 @@ This exercise performs sensitivity analysis on the TV production problem from Ex
 
 The dual problem is formulated as:
 \begin{align}
-    \text{minimize } \quad & 3900y_1 + 2100y_2 + 2200y_3 \\
-    \text{subject to} \quad & 3y_1 + y_2 + 2y_3 \geq 700 \\
-                            & 5y_1 + 3y_2 + 2y_3 \geq 1000 \\
-                            & y_1, y_2, y_3 \geq 0
+\text{minimize } \quad & 3900y_1 + 2100y_2 + 2200y_3 \\
+\text{subject to} \quad & 3y_1 + y_2 + 2y_3 \geq 700 \\
+& 5y_1 + 3y_2 + 2y_3 \geq 1000 \\
+& y_1, y_2, y_3 \geq 0
 \end{align}
 
 Solving the dual problem yields:
 \begin{itemize}
-    \item Dual optimal solution: $y^* = (150, 0, 125)$
-    \item Dual optimal value: $w^* = 860{,}000$
+\item Dual optimal solution: $y^* = (150, 0, 125)$
+\item Dual optimal value: $w^* = 860{,}000$
 \end{itemize}
 
 \textbf{Verification:} The primal optimal value equals the dual optimal value ($z^* = w^* = 860{,}000$), confirming strong duality.
@@ -223,16 +226,16 @@ Solving the dual problem yields:
 
 The shadow prices (dual variables) are:
 \begin{itemize}
-    \item Stage I ($y_1$): 150
-    \item Stage II ($y_2$): 0
-    \item Stage III ($y_3$): 125
+\item Stage I ($y_1$): 150
+\item Stage II ($y_2$): 0
+\item Stage III ($y_3$): 125
 \end{itemize}
 
 \textbf{Interpretation:}
 \begin{itemize}
-    \item Stage I has shadow price 150, meaning each additional hour increases profit by \$150.
-    \item Stage II has shadow price 0, indicating it has slack capacity (non-binding constraint).
-    \item Stage III has shadow price 125, meaning each additional hour increases profit by \$125.
+\item Stage I has shadow price 150, meaning each additional hour increases profit by \$150.
+\item Stage II has shadow price 0, indicating it has slack capacity (non-binding constraint).
+\item Stage III has shadow price 125, meaning each additional hour increases profit by \$125.
 \end{itemize}
 
 \subsection{100 extra working hours}
@@ -240,28 +243,28 @@ The shadow prices (dual variables) are:
 Testing the addition of 100 hours to each stage:
 \begin{center}
 \begin{tabular}{lccc}
-\toprule
-Stage & Shadow Price & Predicted Increase & Actual Increase \\
-\midrule
-Stage I & 150 & \$15,000 & \$15,000 \\
-Stage II & 0 & \$0 & \$0 \\
-Stage III & 125 & \$12,500 & \$12,500 \\
-\bottomrule
+  \toprule
+  Stage & Shadow Price & Predicted Increase & Actual Increase \\
+  \midrule
+  Stage I & 150 & \$15,000 & \$15,000 \\
+  Stage II & 0 & \$0 & \$0 \\
+  Stage III & 125 & \$12,500 & \$12,500 \\
+  \bottomrule
 \end{tabular}
 \end{center}
 
 \textbf{Recommendation:}
 \begin{itemize}
-    \item \textbf{INVEST} in Stage I (highest shadow price of 150)
-    \item \textbf{DO NOT invest} in Stage II (shadow price of 0, has excess capacity)
-    \item Stage III is also valuable (shadow price of 125)
+\item \textbf{INVEST} in Stage I (highest shadow price of 150)
+\item \textbf{DO NOT invest} in Stage II (shadow price of 0, has excess capacity)
+\item Stage III is also valuable (shadow price of 125)
 \end{itemize}
 
 \subsection{Price increase to change optimal solution}
 
 Testing price increases for type B TVs, we find that the optimal solution changes when the price increases by:
 \begin{equation}
-    \boxed{\Delta p_B = \$200}
+\boxed{\Delta p_B = \$200}
 \end{equation}
 
 At price $p_B = \$1200$ (original \$1000 + \$200), the optimal solution shifts from $(800, 300)$ to $(300, 600)$, indicating a switch to producing more type B TVs.
@@ -270,21 +273,21 @@ At price $p_B = \$1200$ (original \$1000 + \$200), the optimal solution shifts f
 
 Type C TV specifications:
 \begin{itemize}
-    \item Profit: \$1,350
-    \item Production times: $(7, 4, 2)$ hours for stages I, II, III
+\item Profit: \$1,350
+\item Production times: $(7, 4, 2)$ hours for stages I, II, III
 \end{itemize}
 
 The reduced cost for type C is:
 \begin{equation}
-    r_C = c_C - y^* \cdot a_C = 1350 - (150 \times 7 + 0 \times 4 + 125 \times 2) = 1350 - 1300 = 50
+r_C = c_C - y^* \cdot a_C = 1350 - (150 \times 7 + 0 \times 4 + 125 \times 2) = 1350 - 1300 = 50
 \end{equation}
 
 Since the reduced cost is positive ($r_C = 50 > 0$), \textbf{type C should be PRODUCED}.
 
 Solving the extended problem with type C included:
 \begin{itemize}
-    \item Optimal production: $(950, 0, 150)$ units of types A, B, and C
-    \item New optimal profit: \$867,500
+\item Optimal production: $(950, 0, 150)$ units of types A, B, and C
+\item New optimal profit: \$867,500
 \end{itemize}
 
 This confirms that producing type C increases profit by \$7,500.
@@ -293,14 +296,14 @@ This confirms that producing type C increases profit by \$7,500.
 
 Quality inspection times:
 \begin{itemize}
-    \item Type A: 0.5 hours
-    \item Type B: 0.75 hours
-    \item Type C: 0.1 hours
+\item Type A\@: 0.5 hours
+\item Type B\@: 0.75 hours
+\item Type C\@: 0.1 hours
 \end{itemize}
 
 With optimal production of $(950, 0, 150)$ units:
 \begin{equation}
-    \text{Total inspection hours} = 950 \times 0.5 + 0 \times 0.75 + 150 \times 0.1 = 475 + 0 + 15 = 490 \text{ hours}
+\text{Total inspection hours} = 950 \times 0.5 + 0 \times 0.75 + 150 \times 0.1 = 475 + 0 + 15 = 490 \text{ hours}
 \end{equation}
 
 \textbf{Answer:} The company must add \boxed{490 \text{ hours}} to the quality inspection line to maintain current production levels without interference.

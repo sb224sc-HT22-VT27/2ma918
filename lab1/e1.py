@@ -25,11 +25,7 @@ c = np.array([700, 1000])
 # Stage II:  1*x1 + 3*x2 <= 2100
 # Stage III: 2*x1 + 2*x2 <= 2200
 # x1, x2 >= 0
-A = np.array([
-    [3, 5],   # Stage I
-    [1, 3],   # Stage II
-    [2, 2]    # Stage III
-])
+A = np.array([[3, 5], [1, 3], [2, 2]])  # Stage I  # Stage II  # Stage III
 b = np.array([3900, 2100, 2200])
 
 print("\ni) Model definition:")
@@ -49,21 +45,21 @@ y2 = (b[1] - A[1, 0] * x) / A[1, 1]  # Stage II
 y3 = (b[2] - A[2, 0] * x) / A[2, 1]  # Stage III
 
 plt.figure(figsize=(10, 8))
-plt.plot(x, y1, label='Stage I: 3x₁ + 5x₂ ≤ 3900')
-plt.plot(x, y2, label='Stage II: x₁ + 3x₂ ≤ 2100')
-plt.plot(x, y3, label='Stage III: 2x₁ + 2x₂ ≤ 2200')
-plt.axhline(y=0, color='black', linestyle='--', linewidth=0.5)
-plt.axvline(x=0, color='black', linestyle='--', linewidth=0.5)
+plt.plot(x, y1, label="Stage I: 3x₁ + 5x₂ ≤ 3900")
+plt.plot(x, y2, label="Stage II: x₁ + 3x₂ ≤ 2100")
+plt.plot(x, y3, label="Stage III: 2x₁ + 2x₂ ≤ 2200")
+plt.axhline(y=0, color="black", linestyle="--", linewidth=0.5)
+plt.axvline(x=0, color="black", linestyle="--", linewidth=0.5)
 
 plt.xlim(0, 1200)
 plt.ylim(0, 1200)
-plt.xlabel('x₁ (Type A TVs)')
-plt.ylabel('x₂ (Type B TVs)')
-plt.title('Feasible Region for TV Production Problem')
+plt.xlabel("x₁ (Type A TVs)")
+plt.ylabel("x₂ (Type B TVs)")
+plt.title("Feasible Region for TV Production Problem")
 plt.legend()
 plt.grid(True, alpha=0.3)
-plt.savefig('img/ex1_feasible_region.png', dpi=300, bbox_inches='tight')
-print("Saved: img/ex1_feasible_region.png")
+plt.savefig("./lab1/img/ex1_feasible_region.png", dpi=300, bbox_inches="tight")
+print("Saved: ./lab1/img/ex1_feasible_region.png")
 
 # iii) Identify the five vertices that enclose the feasible region
 print("\niii) Identifying vertices of feasible region:")
@@ -112,33 +108,39 @@ for i, v in enumerate(vertices):
 print("\niv) Adding level curves to plot...")
 
 plt.figure(figsize=(10, 8))
-plt.plot(x, y1, label='Stage I: 3x₁ + 5x₂ ≤ 3900', linewidth=2)
-plt.plot(x, y2, label='Stage II: x₁ + 3x₂ ≤ 2100', linewidth=2)
-plt.plot(x, y3, label='Stage III: 2x₁ + 2x₂ ≤ 2200', linewidth=2)
-plt.axhline(y=0, color='black', linestyle='--', linewidth=0.5)
-plt.axvline(x=0, color='black', linestyle='--', linewidth=0.5)
+plt.plot(x, y1, label="Stage I: 3x₁ + 5x₂ ≤ 3900", linewidth=2)
+plt.plot(x, y2, label="Stage II: x₁ + 3x₂ ≤ 2100", linewidth=2)
+plt.plot(x, y3, label="Stage III: 2x₁ + 2x₂ ≤ 2200", linewidth=2)
+plt.axhline(y=0, color="black", linestyle="--", linewidth=0.5)
+plt.axvline(x=0, color="black", linestyle="--", linewidth=0.5)
 
 # Plot vertices
 vertices_array = np.array(vertices)
-plt.scatter(vertices_array[:, 0], vertices_array[:, 1], 
-           color='blue', s=100, zorder=5, label='Vertices')
+plt.scatter(
+    vertices_array[:, 0],
+    vertices_array[:, 1],
+    color="blue",
+    s=100,
+    zorder=5,
+    label="Vertices",
+)
 
 # Add level curves for z = c^T x = 700*x1 + 1000*x2
 # For a given z = k, we have x2 = (k - 700*x1) / 1000
 for k in range(1, 9):
     z_value = k * 10**5
     y_level = (z_value - c[0] * x) / c[1]
-    plt.plot(x, y_level, 'r', alpha=k/8, linewidth=1.5)
+    plt.plot(x, y_level, "r", alpha=k / 8, linewidth=1.5)
 
 plt.xlim(0, 1200)
 plt.ylim(0, 1200)
-plt.xlabel('x₁ (Type A TVs)')
-plt.ylabel('x₂ (Type B TVs)')
-plt.title('Feasible Region with Level Curves')
+plt.xlabel("x₁ (Type A TVs)")
+plt.ylabel("x₂ (Type B TVs)")
+plt.title("Feasible Region with Level Curves")
 plt.legend()
 plt.grid(True, alpha=0.3)
-plt.savefig('img/ex1_level_curves.png', dpi=300, bbox_inches='tight')
-print("Saved: img/ex1_level_curves.png")
+plt.savefig("./lab1/img/ex1_level_curves.png", dpi=300, bbox_inches="tight")
+print("Saved: ./lab1/img/ex1_level_curves.png")
 
 # v) Verify by checking the value of z in all extreme points
 print("\nv) Objective function values at vertices:")
@@ -158,7 +160,7 @@ print(f"\nMaximum occurs at vertex {max_vertex} with z = {max_z}")
 print("\nvi) Using scipy linprog to find maximum:")
 
 # linprog minimizes, so we minimize -c^T x to maximize c^T x
-result = linprog(-c, A_ub=A, b_ub=b, bounds=[(0, None), (0, None)], method='highs')
+result = linprog(-c, A_ub=A, b_ub=b, bounds=[(0, None), (0, None)], method="highs")
 
 if result.success:
     print(f"  Optimal solution: x = {result.x}")
@@ -177,15 +179,22 @@ print("\nvii) Solving in standard form with slack variables:")
 
 # New variables: [x1, x2, s1, s2, s3]
 c_standard = np.array([-700, -1000, 0, 0, 0])  # Negative because we're minimizing
-A_eq_standard = np.array([
-    [3, 5, 1, 0, 0],  # Stage I
-    [1, 3, 0, 1, 0],  # Stage II
-    [2, 2, 0, 0, 1]   # Stage III
-])
+A_eq_standard = np.array(
+    [
+        [3, 5, 1, 0, 0],  # Stage I
+        [1, 3, 0, 1, 0],  # Stage II
+        [2, 2, 0, 0, 1],  # Stage III
+    ]
+)
 b_eq_standard = b
 
-result_standard = linprog(c_standard, A_eq=A_eq_standard, b_eq=b_eq_standard, 
-                         bounds=[(0, None)]*5, method='highs')
+result_standard = linprog(
+    c_standard,
+    A_eq=A_eq_standard,
+    b_eq=b_eq_standard,
+    bounds=[(0, None)] * 5,
+    method="highs",
+)
 
 if result_standard.success:
     x_optimal = result_standard.x[:2]
@@ -193,7 +202,7 @@ if result_standard.success:
     print(f"  Optimal solution: x = {x_optimal}")
     print(f"  Slack variables: s = {slack}")
     print(f"  Maximum value: z = {-result_standard.fun}")
-    print(f"  Verification: Both methods give the same result!")
+    print("  Verification: Both methods give the same result!")
 else:
     print(f"  Optimization failed: {result_standard.message}")
 

@@ -11,7 +11,7 @@ import warnings
 import matplotlib.pyplot as plt
 
 # Suppress deprecation warnings for simplex
-warnings.filterwarnings('ignore', category=DeprecationWarning)
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 # Number of trials for averaging timing results
 NUM_TRIALS = 5
@@ -22,7 +22,8 @@ print("=" * 60)
 
 # i) Why use matrix and vector notation?
 print("\ni) Why use matrix and vector notation for LP problems?")
-print("""
+print(
+    """
 Matrix and vector notation provides several advantages:
 1. Compact representation: Instead of writing out hundreds or thousands
    of individual inequality equations, we can represent them as Ax ≤ b.
@@ -34,7 +35,8 @@ Matrix and vector notation provides several advantages:
    facilitates theoretical analysis.
 5. Implementation simplicity: Reduces code complexity and potential
    for errors when dealing with large systems.
-""")
+"""
+)
 
 # ii) Example timing with simplex method
 print("\nii) Testing timing for a sample LP problem:")
@@ -46,11 +48,7 @@ c = np.concatenate([randn(n), np.zeros(m)])
 
 # Time the optimization
 start_time = perf_counter()
-result = linprog(-c,
-                 A_eq=A,
-                 b_eq=b,
-                 method='simplex',
-                 options={'maxiter': 5000})
+result = linprog(-c, A_eq=A, b_eq=b, method="simplex", options={"maxiter": 5000})
 elapsed_time = 1000 * (perf_counter() - start_time)
 
 print(f"Problem size: m = n = {n}")
@@ -76,22 +74,20 @@ for size in range(SIMPLEX_START_SIZE, SIMPLEX_MAX_SIZE, SIMPLEX_STEP_SIZE):
         A = np.concatenate([rand(m, n) + 1, np.eye(m)], axis=-1)
         b = np.ones(m)
         c = np.concatenate([randn(n), np.zeros(m)])
-        
+
         start_time = perf_counter()
-        result = linprog(-c,
-                        A_eq=A,
-                        b_eq=b,
-                        method='simplex',
-                        options={'maxiter': 5000})
+        result = linprog(
+            -c, A_eq=A, b_eq=b, method="simplex", options={"maxiter": 5000}
+        )
         elapsed = 1000 * (perf_counter() - start_time)
         times.append(elapsed)
-    
+
     avg_time = np.mean(times)
     simplex_times.append(avg_time)
     simplex_sizes.append(size)
-    
+
     print(f"  m = n = {size:3d}: Average time = {avg_time:7.2f} ms")
-    
+
     if avg_time > 1000:
         print(f"\n*** Simplex exceeds 1 second at m = n = {size} ***")
         simplex_threshold = size
@@ -118,21 +114,18 @@ for size in range(HIGHS_START_SIZE, HIGHS_MAX_SIZE, HIGHS_STEP_SIZE):
         A = np.concatenate([rand(m, n) + 1, np.eye(m)], axis=-1)
         b = np.ones(m)
         c = np.concatenate([randn(n), np.zeros(m)])
-        
+
         start_time = perf_counter()
-        result = linprog(-c,
-                        A_eq=A,
-                        b_eq=b,
-                        method='highs')
+        result = linprog(-c, A_eq=A, b_eq=b, method="highs")
         elapsed = 1000 * (perf_counter() - start_time)
         times.append(elapsed)
-    
+
     avg_time = np.mean(times)
     highs_times.append(avg_time)
     highs_sizes.append(size)
-    
+
     print(f"  m = n = {size:4d}: Average time = {avg_time:7.2f} ms")
-    
+
     if avg_time > 1000:
         print(f"\n*** HiGHS exceeds 1 second at m = n = {size} ***")
         highs_threshold = size
@@ -146,26 +139,26 @@ print("\nCreating comparison plot...")
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
 
 # Plot 1: Simplex method
-ax1.plot(simplex_sizes, simplex_times, 'o-', color='blue', linewidth=2, markersize=6)
-ax1.axhline(y=1000, color='r', linestyle='--', label='1 second threshold')
-ax1.set_xlabel('Problem Size (m = n)')
-ax1.set_ylabel('Average Time (ms)')
-ax1.set_title('Simplex Method Performance')
+ax1.plot(simplex_sizes, simplex_times, "o-", color="blue", linewidth=2, markersize=6)
+ax1.axhline(y=1000, color="r", linestyle="--", label="1 second threshold")
+ax1.set_xlabel("Problem Size (m = n)")
+ax1.set_ylabel("Average Time (ms)")
+ax1.set_title("Simplex Method Performance")
 ax1.grid(True, alpha=0.3)
 ax1.legend()
 
 # Plot 2: HiGHS method
-ax2.plot(highs_sizes, highs_times, 'o-', color='green', linewidth=2, markersize=6)
-ax2.axhline(y=1000, color='r', linestyle='--', label='1 second threshold')
-ax2.set_xlabel('Problem Size (m = n)')
-ax2.set_ylabel('Average Time (ms)')
-ax2.set_title('HiGHS Method Performance')
+ax2.plot(highs_sizes, highs_times, "o-", color="green", linewidth=2, markersize=6)
+ax2.axhline(y=1000, color="r", linestyle="--", label="1 second threshold")
+ax2.set_xlabel("Problem Size (m = n)")
+ax2.set_ylabel("Average Time (ms)")
+ax2.set_title("HiGHS Method Performance")
 ax2.grid(True, alpha=0.3)
 ax2.legend()
 
 plt.tight_layout()
-plt.savefig('img/ex2_performance_comparison.png', dpi=300, bbox_inches='tight')
-print("Saved: img/ex2_performance_comparison.png")
+plt.savefig("./lab1/img/ex2_performance_comparison.png", dpi=300, bbox_inches="tight")
+print("Saved: ./lab1/img/ex2_performance_comparison.png")
 
 # Summary table
 print("\n" + "=" * 60)
