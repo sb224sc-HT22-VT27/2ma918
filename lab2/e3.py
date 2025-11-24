@@ -111,7 +111,7 @@ def newtons_method_rosenbrock(x0, tol=1e-4, max_iter=10000):
 
         # Check if Hessian is positive definite
         try:
-            L = np.linalg.cholesky(H)
+            _ = np.linalg.cholesky(H)
             # Solve H * d = -grad using Cholesky
             d = np.linalg.solve(H, -grad_k)
         except Exception:
@@ -158,15 +158,15 @@ if __name__ == "__main__":
     plt.contourf(X, Y, Z, 50, cmap=cm.jet)
     plt.title("Rosenbrock")
     plt.colorbar()
-    plt.savefig("./lab2/img/rosenbrock_contour.png", dpi=150, bbox_inches="tight")
-    print("Saved: ./lab2/img/rosenbrock_contour.png")
+    plt.savefig("img/rosenbrock_contour.png", dpi=150, bbox_inches="tight")
+    print("Saved: img/rosenbrock_contour.png")
 
     plt.figure(2, figsize=(10, 8))
     plt.contourf(X, Y, np.log(Z), 50, cmap=cm.jet)
     plt.title("Rosenbrock (log)")
     plt.colorbar()
-    plt.savefig("./lab2/img/rosenbrock_log.png", dpi=150, bbox_inches="tight")
-    print("Saved: ./lab2/img/rosenbrock_log.png")
+    plt.savefig("img/rosenbrock_log.png", dpi=150, bbox_inches="tight")
+    print("Saved: img/rosenbrock_log.png")
 
     # Task 2: Steepest Descent
     print("\n" + "=" * 60)
@@ -199,10 +199,8 @@ if __name__ == "__main__":
     plt.xlim(-2, 2)
     plt.ylim(-1, 3)
     plt.legend()
-    plt.savefig(
-        "./lab2/img/rosenbrock_steepest_descent.png", dpi=150, bbox_inches="tight"
-    )
-    print("Saved: ./lab2/img/rosenbrock_steepest_descent.png")
+    plt.savefig("img/rosenbrock_steepest_descent.png", dpi=150, bbox_inches="tight")
+    print("Saved: img/rosenbrock_steepest_descent.png")
 
     # Task 3: Newton's Method
     print("\n" + "=" * 60)
@@ -234,8 +232,8 @@ if __name__ == "__main__":
     plt.xlim(-2, 2)
     plt.ylim(-1, 3)
     plt.legend()
-    plt.savefig("./lab2/img/rosenbrock_newton.png", dpi=150, bbox_inches="tight")
-    print("Saved: ./lab2/img/rosenbrock_newton.png")
+    plt.savefig("img/rosenbrock_newton.png", dpi=150, bbox_inches="tight")
+    print("Saved: img/rosenbrock_newton.png")
 
     # Task 4: Scipy optimization
     print("\n" + "=" * 60)
@@ -265,4 +263,4 @@ if __name__ == "__main__":
     print("Scipy BFGS:")
     print(f"  Iterations: {res.nit}")
 
-    print("\nAll plots saved to lab2/img/ directory")
+    print("\nAll plots saved to img/ directory")

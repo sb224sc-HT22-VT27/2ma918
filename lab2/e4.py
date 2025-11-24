@@ -153,12 +153,8 @@ if __name__ == "__main__":
     x0 = find_initial_feasible_point()
     print(f"Initial point: x0 = ({x0[0]:.6f}, {x0[1]:.6f})")
     print(f"f(x0) = {f(x0):.6f}")
-    print(
-        f"g1(x0) = x^2 + y^2 - 4 = {g1(x0):.6f} {'<= 0 ✓' if g1(x0) <= 0 else '> 0 ✗'}"
-    )
-    print(
-        f"g2(x0) = 4x + 5y - 25 = {g2(x0):.6f} {'<= 0 ✓' if g2(x0) <= 0 else '> 0 ✗'}"
-    )
+    print(f"g1(x0) = x^2 + y^2 - 4 = {g1(x0):.6f} {'<= 0 ' if g1(x0) <= 0 else '> 0 '}")
+    print(f"g2(x0) = 4x + 5y - 25 = {g2(x0):.6f} {'<= 0 ' if g2(x0) <= 0 else '> 0 '}")
     print(f"Feasible: {is_feasible(x0)}")
 
     # Task 2: Penalty method

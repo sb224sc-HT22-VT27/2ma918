@@ -4,7 +4,6 @@ Implement steepest descent and Newton's method
 """
 
 import numpy as np
-import matplotlib.pyplot as plt
 
 
 # Define the function f(x, y) = (x+1)^2 - xy + 3(y-5)^2

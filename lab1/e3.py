@@ -4,8 +4,7 @@ Performing sensitivity analysis on the TV production LP problem from Exercise 1.
 """
 
 import numpy as np
-from scipy.optimize import linprog, OptimizeResult
-import matplotlib.pyplot as plt
+from scipy.optimize import linprog
 
 print("=" * 60)
 print("Exercise 3: Sensitivity analysis")

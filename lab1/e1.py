@@ -9,7 +9,7 @@ A company produces two types of television sets, a cheap type (A) and an expensi
 
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.optimize import linprog, OptimizeResult
+from scipy.optimize import linprog
 
 # i) Define the model with decision variables x1, x2 and create A, b, c
 print("=" * 60)
@@ -58,8 +58,8 @@ plt.ylabel("x₂ (Type B TVs)")
 plt.title("Feasible Region for TV Production Problem")
 plt.legend()
 plt.grid(True, alpha=0.3)
-plt.savefig("./lab1/img/ex1_feasible_region.png", dpi=300, bbox_inches="tight")
-print("Saved: ./lab1/img/ex1_feasible_region.png")
+plt.savefig("img/ex1_feasible_region.png", dpi=300, bbox_inches="tight")
+print("Saved: img/ex1_feasible_region.png")
 
 # iii) Identify the five vertices that enclose the feasible region
 print("\niii) Identifying vertices of feasible region:")
@@ -139,8 +139,8 @@ plt.ylabel("x₂ (Type B TVs)")
 plt.title("Feasible Region with Level Curves")
 plt.legend()
 plt.grid(True, alpha=0.3)
-plt.savefig("./lab1/img/ex1_level_curves.png", dpi=300, bbox_inches="tight")
-print("Saved: ./lab1/img/ex1_level_curves.png")
+plt.savefig("img/ex1_level_curves.png", dpi=300, bbox_inches="tight")
+print("Saved: img/ex1_level_curves.png")
 
 # v) Verify by checking the value of z in all extreme points
 print("\nv) Objective function values at vertices:")

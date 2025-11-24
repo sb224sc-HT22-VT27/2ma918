@@ -5,7 +5,7 @@ Testing the performance of simplex vs HiGHS method on large LP problems.
 
 import numpy as np
 from numpy.random import rand, randn
-from scipy.optimize import linprog, OptimizeResult
+from scipy.optimize import linprog
 from time import perf_counter
 import warnings
 import matplotlib.pyplot as plt
@@ -157,8 +157,8 @@ ax2.grid(True, alpha=0.3)
 ax2.legend()
 
 plt.tight_layout()
-plt.savefig("./lab1/img/ex2_performance_comparison.png", dpi=300, bbox_inches="tight")
-print("Saved: ./lab1/img/ex2_performance_comparison.png")
+plt.savefig("img/ex2_performance_comparison.png", dpi=300, bbox_inches="tight")
+print("Saved: img/ex2_performance_comparison.png")
 
 # Summary table
 print("\n" + "=" * 60)
