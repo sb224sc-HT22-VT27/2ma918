@@ -96,7 +96,7 @@ else:
     simplex_threshold = simplex_sizes[-1]
 
 # iv) Test with HiGHS method
-print("\niv) Testing with HiGHS method (default or 'highs'):")
+print("\niv) Testing with HiGHS method:")
 
 # Benchmarking parameters for HiGHS method
 HIGHS_START_SIZE = 100
@@ -166,7 +166,7 @@ print("SUMMARY")
 print("=" * 60)
 print(f"Simplex method exceeds 1 second at: m = n = {simplex_threshold}")
 print(f"HiGHS method exceeds 1 second at:  m = n = {highs_threshold}")
-print(f"Performance improvement: ~{highs_threshold/simplex_threshold:.1f}x faster")
+print(f"Performance improvement: ~{highs_threshold / simplex_threshold:.1f}x faster")
 print("=" * 60)
 print("Exercise 2 complete!")
 print("=" * 60)
